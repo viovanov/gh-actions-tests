@@ -7,12 +7,9 @@ on:
 jobs:
   enqueue:
     if: github.event.pull_request.base.ref == 'master' && github.event.review.state == 'approved'
-    name: dequeue
+    name: enqueue
     runs-on: ubuntu-20.04
     steps:
-      - name: Extract info
-        id: infos
-        run: echo ${{ toJson(github) }}
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           github_token: ${{ secrets.github_token }}
