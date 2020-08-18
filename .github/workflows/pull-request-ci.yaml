@@ -1,0 +1,30 @@
+name: CI
+on:
+  # Trigger the workflow on pull requests
+  pull_request_target:
+    branches: master
+    types: [labeled]
+jobs:
+  dequeue:
+    name: dequeue
+    if: contains(github.event.pull_request.labels.*.name, 'pr-test-queue')
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          labels: pr-test-queue
+
+  foo:
+    name: lint
+    needs: [dequeue]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: kubecf
+          fetch-depth: 0
+          submodules: recursive
+
+      - run: echo ran
