@@ -5,7 +5,7 @@ on:
     types: [submitted]
 
 jobs:
-  dequeue:
+  enqueue:
     if: github.event.pull_request.base.ref == 'master'
     # && contains(github.event.pull_request.reviews.*.state, 'APPROVED')
     name: dequeue
