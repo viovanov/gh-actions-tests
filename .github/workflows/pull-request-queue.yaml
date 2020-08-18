@@ -6,7 +6,8 @@ on:
 
 jobs:
   dequeue:
-    if: github.event.pull_request.base.ref == 'master' && contains(github.event.pull_request.reviews.*.state, 'APPROVED')
+    if: github.event.pull_request.base.ref == 'master'
+    # && contains(github.event.pull_request.reviews.*.state, 'APPROVED')
     name: dequeue
     runs-on: ubuntu-20.04
     steps:
