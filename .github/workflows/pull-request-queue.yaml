@@ -14,8 +14,8 @@ jobs:
       - name: Extract info
         uses: Dovyski/payload-info-action@v1.0.0
         id: infos
-      - uses: actions-ecosystem/action-add-labels@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          labels: pr-test-queue
+      - id: foo
+        run: |
+          echo ${{ github }}
+        
  
