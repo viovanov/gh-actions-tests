@@ -11,6 +11,9 @@ jobs:
     name: dequeue
     runs-on: ubuntu-20.04
     steps:
+      - name: Extract info
+        uses: dovyski/payload-info-action
+        id: infos
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           github_token: ${{ secrets.github_token }}
