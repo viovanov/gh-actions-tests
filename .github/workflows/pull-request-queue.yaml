@@ -12,10 +12,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Extract info
-        uses: Dovyski/payload-info-action@v1.0.0
         id: infos
-      - id: foo
-        run: |
-          echo ${{ github }}
-        
- 
+        run: echo ${{ github }}
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          labels: pr-test-queue
