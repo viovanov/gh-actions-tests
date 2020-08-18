@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Extract info
-        uses: dovyski/payload-info-action
+        uses: dovyski/payload-info-action@v1.0.0
         id: infos
       - uses: actions-ecosystem/action-add-labels@v1
         with:
