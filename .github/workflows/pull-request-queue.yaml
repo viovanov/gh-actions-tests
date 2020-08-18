@@ -12,5 +12,5 @@ jobs:
     steps:
       - uses: actions-ecosystem/action-add-labels@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GH_BOT_TOKEN }}
           labels: pr-test-queue
